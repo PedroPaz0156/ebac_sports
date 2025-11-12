@@ -16,7 +16,7 @@ const Header = () => {
   )
 
   const valorTotal = itensNoCarrinho.reduce(
-    (acc: any, itensNoCarrinho: Produto) => {
+    (acc: number, itensNoCarrinho: Produto) => {
       acc += itensNoCarrinho.preco
       return acc
     },

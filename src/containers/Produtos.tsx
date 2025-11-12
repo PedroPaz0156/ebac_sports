@@ -6,9 +6,9 @@ import * as S from './styles'
 
 const ProdutosComponent = () => {
   const { data: produtos } = useGetProdutosQuery()
+  const favoritos: ProdutoType[] = []
 
-  const produtoEstaNosFavoritos = (favoritos: ProdutoType[]) => {
-    const produtoId = produtos.id
+  const produtoEstaNosFavoritos = (produtoId: number) => {
     const IdsDosFavoritos = favoritos.map((f) => f.id)
 
     return IdsDosFavoritos.includes(produtoId)
@@ -19,7 +19,7 @@ const ProdutosComponent = () => {
       <S.Produtos>
         {produtos?.map((produto: ProdutoType) => (
           <Produto
-            estaNosFavoritos={produtoEstaNosFavoritos(produtos.id)}
+            estaNosFavoritos={produtoEstaNosFavoritos(produto.id)}
             key={produto.id}
             produto={produto}
           />

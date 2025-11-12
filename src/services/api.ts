@@ -5,7 +5,7 @@ const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api-ebac.vercel.app/api'
   }),
-  endpoints: (builder: { query: (arg0: { query: () => string }) => any }) => ({
+  endpoints: (builder) => ({
     getProdutos: builder.query<Produto[], void>({
       query: () => 'ebac_sports'
     })
